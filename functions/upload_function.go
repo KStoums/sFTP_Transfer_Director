@@ -65,6 +65,10 @@ func UploadSFTP() {
 	}
 	defer sftpClient.Close()
 
+	if strings.ContainsAny(localFilePath, "\\") {
+		strings.ReplaceAll(localFilePath, "\\", "/")
+	}
+
 	splitted := strings.Split(localFilePath, "/")
 	localFileName := splitted[len(splitted)-1]
 

@@ -50,6 +50,8 @@ func DownloadSFTP() {
 	}
 	defer sftpClient.Close()
 
+	strings.ReplaceAll(localFilePath, "\\", "/")
+
 	splitted := strings.Split(remoteFilePath, "/")
 	remoteFileName := splitted[len(splitted)-1]
 
