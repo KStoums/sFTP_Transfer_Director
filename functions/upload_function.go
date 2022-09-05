@@ -93,7 +93,6 @@ func UploadSFTP() {
 		remoteFilePath += localFileName
 	}
 
-	fmt.Println(remoteFilePath)
 	remoteFile, err := sftpClient.OpenFile(remoteFilePath, os.O_RDWR|os.O_CREATE|os.O_TRUNC)
 	if err != nil {
 		if errors.Is(err, os.ErrPermission) {
